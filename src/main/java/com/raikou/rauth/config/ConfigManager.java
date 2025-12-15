@@ -32,4 +32,12 @@ public class ConfigManager {
     public int getLoginTimeout() {
         return plugin.getConfig().getInt("security.login-timeout", 60);
     }
+
+    public boolean isBungeeEnabled() {
+        return plugin.getConfig().getBoolean("bungeecord.enabled", false);
+    }
+
+    public String getBungeeServer() {
+        return plugin.getConfig().getString("bungeecord.server", "lobby");
+    }
 }

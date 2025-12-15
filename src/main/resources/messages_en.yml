@@ -22,6 +22,7 @@ messages:
   timeout-subtitle: "<gray>You will be kicked in <#FF5555><time> <gray>seconds!"
   timeout-chat: "<#FF5555>You will be kicked in <#FFFF55><time> <#FF5555>seconds!"
   logged-out: "<#55FF55>Logged out successfully. See you soon!"
+  sending-to-server: "<#55FF55>Connecting to server..."
   
   # Validation
   password-too-short: "<#FF5555>Password is too short. Minimum length is <#FFFF55><min><#FF5555>."

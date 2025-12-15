@@ -22,6 +22,7 @@ messages:
   timeout-subtitle: "<#FF5555><time> <gray>saniye içinde atılacaksınız!"
   timeout-chat: "<#FFFF55><time> <#FF5555>saniye içinde sunucudan atılacaksınız!"
   logged-out: "<#55FF55>Başarıyla çıkış yapıldı. Görüşmek üzere!"
+  sending-to-server: "<#55FF55>Sunucuya bağlanılıyor..."
   
   # Validation
   password-too-short: "<#FF5555>Şifre çok kısa. Minimum uzunluk: <#FFFF55><min><#FF5555>."

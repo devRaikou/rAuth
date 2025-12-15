@@ -55,6 +55,9 @@ public class RAuth extends JavaPlugin {
         // Register Listeners
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 
+        // Register BungeeCord Channel
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+
         getLogger().info("rAuth has been enabled!");
     }
 

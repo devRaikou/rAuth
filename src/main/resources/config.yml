@@ -27,6 +27,13 @@ security:
   # Login timeout in seconds (0 to disable)
   login-timeout: 60
 
+# BungeeCord / Velocity Support
+bungeecord:
+  # Enable to send player to another server after login
+  enabled: false
+  # Target server name (must match proxy config)
+  server: "lobby"
+
 # Teleportation
 teleport:
   spawn-on-join: true

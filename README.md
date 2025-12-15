@@ -11,6 +11,7 @@
 *   **🎨 Modern Aesthetics**: Built with `MiniMessage` for clear, beautiful, and gradient-text support.
 *   **🌍 Localization**: Full multi-language support (English & Turkish included out-of-the-box).
 *   **⏱️ Login Timeout**: Configurable countdown timer (Title, Subtitle, Sound) to kick idle unauthenticated players.
+*   **🌐 Proxy Support**: Seamless integration with Velocity and BungeeCord to send players to a lobby after login.
 *   **💾 Database Support**: Flexible storage options (SQLite for simple setups, MySQL for networks).
 *   **🔄 Session Management**: Remembers players for a configurable time, preventing repetitive logins.
 *   **🛡️ Security**: IP limit checks, secure password hashing, and input validation.
@@ -45,6 +46,10 @@ security:
   min-password-length: 6
   login-timeout: 60 # Seconds before kick
   session-timeout: 30 # Minutes to remember login
+
+bungeecord:
+  enabled: false
+  server: "lobby"
 ```
 
 ---

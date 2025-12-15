@@ -31,13 +31,19 @@ public class AuthManager {
             // Check session
             if (sessionManager.hasSession(player.getUniqueId())) {
                 String lastIp = player.getAddress().getAddress().getHostAddress();
-                // We should verification against DB last IP if we want strict IP sessions,
-                // but for now simple time-based session + re-login logic.
-                // NOTE: Real implementation might verify IP from DB.
+                String dbLastIp = plugin.getDatabaseManager().getLastIp(player.getUniqueId());
 
-                loggedInPlayers.add(player.getUniqueId());
-                plugin.getTimeoutManager().stopTimer(player);
-                player.sendMessage(plugin.getLanguageManager().getMessage("login-success"));
+                if (dbLastIp != null && dbLastIp.equals(lastIp)) {
+                    loggedInPlayers.add(player.getUniqueId());
+                    plugin.getTimeoutManager().stopTimer(player);
+                    player.sendMessage(plugin.getLanguageManager().getMessage("login-success"));
+
+                    sendToBungeeServer(player);
+                } else {
+                    // Session invalid due to IP change
+                    sessionManager.endSession(player.getUniqueId());
+                    player.sendMessage(plugin.getLanguageManager().getMessage("join-login"));
+                }
             } else {
                 player.sendMessage(plugin.getLanguageManager().getMessage("join-login"));
             }
@@ -79,6 +85,7 @@ public class AuthManager {
         plugin.getTimeoutManager().stopTimer(player);
 
         player.sendMessage(plugin.getLanguageManager().getMessage("register-success"));
+        sendToBungeeServer(player);
     }
 
     public void login(Player player, String password) {
@@ -104,6 +111,7 @@ public class AuthManager {
                     player.getAddress().getAddress().getHostAddress());
 
             player.sendMessage(plugin.getLanguageManager().getMessage("login-success"));
+            sendToBungeeServer(player);
         } else {
             player.sendMessage(plugin.getLanguageManager().getMessage("login-failed"));
         }
@@ -134,5 +142,25 @@ public class AuthManager {
         } else {
             player.sendMessage(plugin.getLanguageManager().getMessage("password-mismatch"));
         }
+    }
+
+    private void sendToBungeeServer(Player player) {
+        if (!plugin.getConfigManager().isBungeeEnabled())
+            return;
+
+        String server = plugin.getConfigManager().getBungeeServer();
+        player.sendMessage(plugin.getLanguageManager().getMessage("sending-to-server"));
+
+        // Wait a bit to ensure messages are sent
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            try {
+                com.google.common.io.ByteArrayDataOutput out = com.google.common.io.ByteStreams.newDataOutput();
+                out.writeUTF("Connect");
+                out.writeUTF(server);
+                player.sendPluginMessage(plugin, "BungeeCord", out.toByteArray());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, 10L);
     }
 }

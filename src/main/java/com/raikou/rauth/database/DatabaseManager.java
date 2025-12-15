@@ -143,4 +143,18 @@ public class DatabaseManager {
         }
         return 0;
     }
+
+    public String getLastIp(UUID uuid) {
+        try (Connection conn = dataSource.getConnection();
+                PreparedStatement ps = conn.prepareStatement("SELECT last_ip FROM rauth_users WHERE uuid = ?")) {
+            ps.setString(1, uuid.toString());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("last_ip");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
