@@ -1,0 +1,38 @@
+# rAuth Configuration File
+
+# Database Configuration
+database:
+  # Type: SQLITE or MYSQL
+  type: SQLITE
+  host: localhost
+  port: 3306
+  database: rauth
+  username: root
+  password: ""
+
+# Localization
+# Available languages: en, tr
+language: en
+
+# Security Settings
+security:
+  # Minimum password length
+  min-password-length: 6
+  # Maximum password length
+  max-password-length: 32
+  # Allow same IP to register multiple accounts
+  max-registrations-per-ip: 3
+  # Session timeout in minutes (0 to disable)
+  session-timeout: 30
+
+# Teleportation
+teleport:
+  spawn-on-join: true
+  # Set spawn location with /rauth setspawn (Implement later)
+  spawn-location:
+    world: world
+    x: 0
+    y: 100
+    z: 0
+    yaw: 0
+    pitch: 0

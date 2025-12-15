@@ -1,0 +1,33 @@
+name: rAuth
+version: '1.0-SNAPSHOT'
+main: com.raikou.rauth.RAuth
+api-version: '1.21'
+prefix: rAuth
+authors: [raikou]
+description: Modern, Secure, Consolidated Authentication Plugin
+
+permissions:
+  rauth.admin:
+    description: Allows access to admin commands
+    default: op
+
+commands:
+  register:
+    description: Register an account
+    usage: /register <password> <confirmPassword>
+    aliases: [reg]
+  login:
+    description: Login to your account
+    usage: /login <password>
+    aliases: [l]
+  logout:
+    description: Logout from your account
+    usage: /logout
+  changepassword:
+    description: Change your password
+    usage: /changepassword <oldPassword> <newPassword>
+    aliases: [changepass, cp]
+  rauth:
+    description: Admin command for rAuth
+    usage: /rauth <reload|help>
+    permission: rauth.admin
