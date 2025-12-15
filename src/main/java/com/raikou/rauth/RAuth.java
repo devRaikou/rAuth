@@ -8,6 +8,8 @@ import com.raikou.rauth.listeners.PlayerListener;
 import com.raikou.rauth.manager.AuthManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.raikou.rauth.utils.EmptyTabCompleter;
+
 public class RAuth extends JavaPlugin {
 
     private static RAuth instance;
@@ -32,10 +34,19 @@ public class RAuth extends JavaPlugin {
 
         // Register Commands
         getCommand("register").setExecutor(new RegisterCommand(this));
+        getCommand("register").setTabCompleter(new EmptyTabCompleter());
+
         getCommand("login").setExecutor(new LoginCommand(this));
+        getCommand("login").setTabCompleter(new EmptyTabCompleter());
+
         getCommand("logout").setExecutor(new LogoutCommand(this));
+        getCommand("logout").setTabCompleter(new EmptyTabCompleter());
+
         getCommand("changepassword").setExecutor(new ChangePasswordCommand(this));
+        getCommand("changepassword").setTabCompleter(new EmptyTabCompleter());
+
         getCommand("rauth").setExecutor(new RAuthCommand(this));
+        getCommand("rauth").setTabCompleter(new RAuthTabCompleter());
 
         // Register Listeners
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);

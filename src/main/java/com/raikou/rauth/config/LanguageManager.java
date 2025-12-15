@@ -22,12 +22,15 @@ public class LanguageManager {
     }
 
     public void loadMessages() {
+        if (!new File(plugin.getDataFolder(), "messages_en.yml").exists()) {
+            plugin.saveResource("messages_en.yml", false);
+        }
+        if (!new File(plugin.getDataFolder(), "messages_tr.yml").exists()) {
+            plugin.saveResource("messages_tr.yml", false);
+        }
+
         String lang = plugin.getConfigManager().getLanguage();
         File messageFile = new File(plugin.getDataFolder(), "messages_" + lang + ".yml");
-
-        if (!messageFile.exists()) {
-            plugin.saveResource("messages_" + lang + ".yml", false);
-        }
 
         messagesConfig = YamlConfiguration.loadConfiguration(messageFile);
 
@@ -54,5 +57,13 @@ public class LanguageManager {
         }
 
         return miniMessage.deserialize(prefix + msg);
+    }
+
+    public Component getMessageWithoutPrefix(String key) {
+        String msg = messagesConfig.getString("messages." + key);
+        if (msg == null)
+            return Component.text("Missing message: " + key);
+
+        return miniMessage.deserialize(msg);
     }
 }

@@ -22,15 +22,21 @@ public class RAuthCommand implements CommandExecutor {
             return true;
         }
 
-        if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
-            plugin.getConfigManager().loadConfig();
-            plugin.getLanguageManager().loadMessages();
-            sender.sendMessage(plugin.getLanguageManager().getMessage("prefix")
-                    .append(net.kyori.adventure.text.Component.text("Reloaded configuration.")));
-            return true;
+        if (args.length > 0) {
+            if (args[0].equalsIgnoreCase("reload")) {
+                plugin.getConfigManager().loadConfig();
+                plugin.getLanguageManager().loadMessages();
+                sender.sendMessage(plugin.getLanguageManager().getMessage("admin-reload"));
+                return true;
+            }
+
+            if (args[0].equalsIgnoreCase("help")) {
+                sender.sendMessage(plugin.getLanguageManager().getMessageWithoutPrefix("admin-help-list"));
+                return true;
+            }
         }
 
-        sender.sendMessage(net.kyori.adventure.text.Component.text("Usage: /rauth <reload|help>"));
+        sender.sendMessage(plugin.getLanguageManager().getMessage("admin-usage"));
         return true;
     }
 }

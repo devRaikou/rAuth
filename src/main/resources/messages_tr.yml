@@ -1,27 +1,40 @@
-prefix: "<gradient:#00BFFF:#1E90FF><bold>rAuth</bold></gradient> <dark_gray>»</dark_gray> "
+prefix: "<gradient:#00C9FF:#92FE9D><bold>rAuth</bold></gradient> <dark_gray>»</dark_gray> "
 
 messages:
-  no-permission: "<red>Bu komutu kullanmak için yetkiniz yok."
-  only-players: "<red>Bu komut sadece oyuncular tarafından kullanılabilir."
+  no-permission: "<#FF5555>Bu komutu kullanmak için yetkiniz yok."
+  only-players: "<#FF5555>Bu komut sadece oyuncular tarafından kullanılabilir."
   
   # Auth Messages
-  already-logged-in: "<green>Zaten giriş yaptınız."
-  not-logged-in: "<red>Giriş yapmadınız!"
-  login-success: "<green>Başarıyla giriş yapıldı!"
-  login-failed: "<red>Yanlış şifre!"
-  register-success: "<green>Başarıyla kayıt olundu!"
-  register-failed: "<red>Kayıt başarısız."
-  already-registered: "<red>Zaten kayıtlısınız."
-  not-registered: "<red>Kayıtlı değilsiniz."
-  password-mismatch: "<red>Şifreler uyuşmuyor."
-  password-changed: "<green>Şifre başarıyla değiştirildi."
-  logged-out: "<green>Başarıyla çıkış yapıldı."
+  already-logged-in: "<#FF5555>Zaten giriş yapmışsınız."
+  not-logged-in: "<#FF5555>Giriş yapmadınız! Devam etmek için lütfen giriş yapın."
+  login-success: "<#55FF55>Başarıyla giriş yapıldı! İyi eğlenceler."
+  login-failed: "<#FF5555>Hatalı şifre! Lütfen tekrar deneyin."
+  register-success: "<#55FF55>Başarıyla kayıt olundu! Artık giriş yapıldı."
+  register-failed: "<#FF5555>Kayıt işlemi başarısız oldu. Lütfen daha sonra tekrar deneyin."
+  already-registered: "<#FF5555>Zaten kayıtlısınız! <#FFFF55>/login <şifre><#FF5555> komutunu kullanın."
+  not-registered: "<#FF5555>Kayıtlı değilsiniz! <#FFFF55>/register <şifre> <şifre><#FF5555> komutunu kullanın."
+  password-mismatch: "<#FF5555>Şifreler uyuşmuyor. Lütfen kontrol edip tekrar deneyin."
+  password-changed: "<#55FF55>Şifreniz başarıyla değiştirildi."
+  logged-out: "<#55FF55>Başarıyla çıkış yapıldı. Görüşmek üzere!"
   
   # Validation
-  password-too-short: "<red>Şifre çok kısa. Minimum uzunluk: <min>."
-  password-too-long: "<red>Şifre çok uzun. Maksimum uzunluk: <max>."
-  max-registrations: "<red>Maksimum kayıt sınırına ulaştınız."
+  password-too-short: "<#FF5555>Şifre çok kısa. Minimum uzunluk: <#FFFF55><min><#FF5555>."
+  password-too-long: "<#FF5555>Şifre çok uzun. Maksimum uzunluk: <#FFFF55><max><#FF5555>."
+  max-registrations: "<#FF5555>Maksimum kayıt sınırına ulaştınız (<#FFFF55><max><#FF5555>)."
   
   # Prompt
-  join-register: "<yellow>Lütfen kayıt olun: <gold>/register <şifre> <şifre></gold>"
-  join-login: "<yellow>Lütfen giriş yapın: <gold>/login <şifre></gold>"
+  join-register: "<gray>Hoş geldiniz! Lütfen kayıt olun: <#00BFFF>/register <şifre> <şifre><gray>."
+  join-login: "<gray>Tekrar hoş geldiniz! Lütfen giriş yapın: <#00BFFF>/login <şifre><gray>."
+  
+  # Admin
+  admin-reload: "<#55FF55>Yapılandırma dosyaları başarıyla yenilendi."
+  admin-reload: "<#55FF55>Yapılandırma dosyaları başarıyla yenilendi."
+  admin-usage: "<white>Kullanım: <#00BFFF>/rauth <reload|help>"
+  admin-help-list: |
+    <gradient:#00C9FF:#92FE9D><bold>rAuth</bold></gradient> <dark_gray>»</dark_gray> <gray>Yardım Menüsü</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/login <şifre> <dark_gray>-</dark_gray> <gray>Giriş yap</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/register <şifre> <şifre> <dark_gray>-</dark_gray> <gray>Kayıt ol</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/logout <dark_gray>-</dark_gray> <gray>Çıkış yap</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/changepassword <eski> <yeni> <dark_gray>-</dark_gray> <gray>Şifre değiştir</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/rauth reload <dark_gray>-</dark_gray> <gray>Yapılandırmayı yenile (Admin)</gray>
+    <dark_gray>▪</dark_gray> <#00BFFF>/rauth help <dark_gray>-</dark_gray> <gray>Bu yardım menüsünü göster</gray>
