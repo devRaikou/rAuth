@@ -1,3 +1,5 @@
+package com.raikou.rauth;
+
 import com.raikou.rauth.commands.*;
 import com.raikou.rauth.config.ConfigManager;
 import com.raikou.rauth.config.LanguageManager;

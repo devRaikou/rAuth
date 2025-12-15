@@ -11,7 +11,7 @@
 
     <name>rAuth</name>
     <description>Modern, Secure, Consolidated Authentication Plugin</description>
-    <url>https://github.com/raikou/rAuth</url>
+    <url>https://github.com/devRaikou/rAuth</url>
 
     <properties>
         <java.version>21</java.version>
