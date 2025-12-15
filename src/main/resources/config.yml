@@ -24,6 +24,8 @@ security:
   max-registrations-per-ip: 3
   # Session timeout in minutes (0 to disable)
   session-timeout: 30
+  # Login timeout in seconds (0 to disable)
+  login-timeout: 60
 
 # Teleportation
 teleport:

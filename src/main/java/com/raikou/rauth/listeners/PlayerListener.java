@@ -23,11 +23,13 @@ public class PlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         // Send join prompt
         plugin.getAuthManager().handleJoin(event.getPlayer());
+        plugin.getTimeoutManager().startTimer(event.getPlayer());
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         plugin.getAuthManager().handleQuit(event.getPlayer());
+        plugin.getTimeoutManager().stopTimer(event.getPlayer());
     }
 
     @EventHandler

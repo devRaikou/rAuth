@@ -66,4 +66,18 @@ public class LanguageManager {
 
         return miniMessage.deserialize(msg);
     }
+
+    public Component getMessageWithoutPrefix(String key, String... placeholders) {
+        String msg = messagesConfig.getString("messages." + key);
+        if (msg == null)
+            return Component.text("Missing message: " + key);
+
+        for (int i = 0; i < placeholders.length; i += 2) {
+            if (i + 1 < placeholders.length) {
+                msg = msg.replace("<" + placeholders[i] + ">", placeholders[i + 1]);
+            }
+        }
+
+        return miniMessage.deserialize(msg);
+    }
 }

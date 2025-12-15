@@ -14,7 +14,13 @@ messages:
   already-registered: "<#FF5555>You are already registered! use <#FFFF55>/login <password><#FF5555>."
   not-registered: "<#FF5555>You are not registered! use <#FFFF55>/register <password> <password><#FF5555>."
   password-mismatch: "<#FF5555>Passwords do not match. Please check and try again."
-  password-changed: "<#55FF55>Password changed successfully."
+  changepassword-success: "<#55FF55>Password changed successfully."
+  
+  # Timeout
+  timeout-kick: "<#FF5555>Login time expired!"
+  timeout-title: "<#FF5555>Login Timeout"
+  timeout-subtitle: "<gray>You will be kicked in <#FF5555><time> <gray>seconds!"
+  timeout-chat: "<#FF5555>You will be kicked in <#FFFF55><time> <#FF5555>seconds!"
   logged-out: "<#55FF55>Logged out successfully. See you soon!"
   
   # Validation

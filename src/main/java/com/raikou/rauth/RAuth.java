@@ -6,6 +6,7 @@ import com.raikou.rauth.config.LanguageManager;
 import com.raikou.rauth.database.DatabaseManager;
 import com.raikou.rauth.listeners.PlayerListener;
 import com.raikou.rauth.manager.AuthManager;
+import com.raikou.rauth.managers.TimeoutManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.raikou.rauth.utils.EmptyTabCompleter;
@@ -17,6 +18,7 @@ public class RAuth extends JavaPlugin {
     private LanguageManager languageManager;
     private DatabaseManager databaseManager;
     private AuthManager authManager;
+    private TimeoutManager timeoutManager;
 
     @Override
     public void onEnable() {
@@ -30,7 +32,9 @@ public class RAuth extends JavaPlugin {
         this.databaseManager = new DatabaseManager(this);
 
         // Initialize Managers
+        // Initialize Managers
         this.authManager = new AuthManager(this);
+        this.timeoutManager = new TimeoutManager(this);
 
         // Register Commands
         getCommand("register").setExecutor(new RegisterCommand(this));
@@ -82,5 +86,9 @@ public class RAuth extends JavaPlugin {
 
     public AuthManager getAuthManager() {
         return authManager;
+    }
+
+    public TimeoutManager getTimeoutManager() {
+        return timeoutManager;
     }
 }

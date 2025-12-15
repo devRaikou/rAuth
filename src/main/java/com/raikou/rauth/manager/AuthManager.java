@@ -36,6 +36,7 @@ public class AuthManager {
                 // NOTE: Real implementation might verify IP from DB.
 
                 loggedInPlayers.add(player.getUniqueId());
+                plugin.getTimeoutManager().stopTimer(player);
                 player.sendMessage(plugin.getLanguageManager().getMessage("login-success"));
             } else {
                 player.sendMessage(plugin.getLanguageManager().getMessage("join-login"));
@@ -75,6 +76,7 @@ public class AuthManager {
 
         loggedInPlayers.add(player.getUniqueId());
         sessionManager.createSession(player.getUniqueId());
+        plugin.getTimeoutManager().stopTimer(player);
 
         player.sendMessage(plugin.getLanguageManager().getMessage("register-success"));
     }
@@ -94,6 +96,7 @@ public class AuthManager {
         if (SecurityUtil.checkPassword(password, hash)) {
             loggedInPlayers.add(player.getUniqueId());
             sessionManager.createSession(player.getUniqueId());
+            plugin.getTimeoutManager().stopTimer(player);
 
             // Update IP
             plugin.getDatabaseManager().updateLastLogin(

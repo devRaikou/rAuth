@@ -28,4 +28,8 @@ public class ConfigManager {
     public int getMaxPasswordLength() {
         return plugin.getConfig().getInt("security.max-password-length", 32);
     }
+
+    public int getLoginTimeout() {
+        return plugin.getConfig().getInt("security.login-timeout", 60);
+    }
 }

@@ -14,7 +14,13 @@ messages:
   already-registered: "<#FF5555>Zaten kayıtlısınız! <#FFFF55>/login <şifre><#FF5555> komutunu kullanın."
   not-registered: "<#FF5555>Kayıtlı değilsiniz! <#FFFF55>/register <şifre> <şifre><#FF5555> komutunu kullanın."
   password-mismatch: "<#FF5555>Şifreler uyuşmuyor. Lütfen kontrol edip tekrar deneyin."
-  password-changed: "<#55FF55>Şifreniz başarıyla değiştirildi."
+  changepassword-success: "<#55FF55>Şifreniz başarıyla değiştirildi."
+  
+  # Timeout
+  timeout-kick: "<#FF5555>Giriş süresi doldu!"
+  timeout-title: "<#FF5555>Giriş Zaman Aşımı"
+  timeout-subtitle: "<#FF5555><time> <gray>saniye içinde atılacaksınız!"
+  timeout-chat: "<#FFFF55><time> <#FF5555>saniye içinde sunucudan atılacaksınız!"
   logged-out: "<#55FF55>Başarıyla çıkış yapıldı. Görüşmek üzere!"
   
   # Validation
